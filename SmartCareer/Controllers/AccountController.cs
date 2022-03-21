@@ -11,26 +11,27 @@ public class AccountController : ControllerBase
 
     private readonly ILogger<AccountController> _logger;
     private readonly SmartCareerDBContext _dbContext;
+    private readonly IAccountService _accountService;
 
-    public AccountController(ILogger<AccountController> logger, SmartCareerDBContext dBContext)
+    public AccountController(ILogger<AccountController> logger, SmartCareerDBContext dBContext, IAccountService accountService)
     {
         _logger = logger;
         _dbContext = dBContext;
+        _accountService = accountService;
     }
 
     [HttpPut("register")]
-    public ActionResult Register([FromBody] UserRequest userRequest)
+    public async Task<ActionResult> Register([FromBody] UserRequest userRequest)
     {
-        _dbContext.Users.Add(new User
-        {
-            MailAddress = userRequest.MailAddress,
-            Password = userRequest.Password,
-            Id = new Guid(),
-            CreatedTime = DateTime.Now
-        });
+        return Ok(await _accountService.RegisterAsync(userRequest));
+    }
 
-        _dbContext.SaveChangesAsync();
-
-        return Ok();
+    [HttpPut("login")]
+    public async Task<ActionResult> Login([FromBody] UserRequest userRequest)
+    {
+        if(await _accountService.LoginAsync(userRequest))
+            return Ok();
+        else
+            return Unauthorized();
     }
 }

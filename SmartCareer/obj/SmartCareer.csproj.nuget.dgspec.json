@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Burak\\Desktop\\Final Project\\Backend\\SmartCareer\\SmartCareer.csproj": {}
+    "C:\\Users\\Burak\\Desktop\\github SimpleWebSite\\SmartCareer\\SmartCareer\\SmartCareer.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Burak\\Desktop\\Final Project\\Backend\\SmartCareer\\SmartCareer.csproj": {
+    "C:\\Users\\Burak\\Desktop\\github SimpleWebSite\\SmartCareer\\SmartCareer\\SmartCareer.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Burak\\Desktop\\Final Project\\Backend\\SmartCareer\\SmartCareer.csproj",
+        "projectUniqueName": "C:\\Users\\Burak\\Desktop\\github SimpleWebSite\\SmartCareer\\SmartCareer\\SmartCareer.csproj",
         "projectName": "SmartCareer",
-        "projectPath": "C:\\Users\\Burak\\Desktop\\Final Project\\Backend\\SmartCareer\\SmartCareer.csproj",
+        "projectPath": "C:\\Users\\Burak\\Desktop\\github SimpleWebSite\\SmartCareer\\SmartCareer\\SmartCareer.csproj",
         "packagesPath": "C:\\Users\\Burak\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Burak\\Desktop\\Final Project\\Backend\\SmartCareer\\obj\\",
+        "outputPath": "C:\\Users\\Burak\\Desktop\\github SimpleWebSite\\SmartCareer\\SmartCareer\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Burak\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -38,6 +38,14 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "dependencies": {
+            "FluentValidation": {
+              "target": "Package",
+              "version": "[10.4.0, )"
+            },
+            "FluentValidation.AspNetCore": {
+              "target": "Package",
+              "version": "[10.4.0, )"
+            },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
               "version": "[6.0.2, )"

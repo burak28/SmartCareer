@@ -1,9 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "jj0CXPX//ODTFhmC0G1uWYs4mCQfZXBJKtvHY5/vASGN56hcP77w3pCwCCL3r+Kn+i8KE/VFZSFl2GJseWZjpg==",
+  "dgSpecHash": "HgTvXnQwE0BlYpbRuKkDL04LFNyveLKZMTwvEwCnqwd4GkyO/uBoKACmaWaX2tCqNEGQ06eX1EbhqH/TFvG/YA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Burak\\Desktop\\Final Project\\Backend\\SmartCareer\\SmartCareer.csproj",
+  "projectFilePath": "C:\\Users\\Burak\\Desktop\\github SimpleWebSite\\SmartCareer\\SmartCareer\\SmartCareer.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\Burak\\.nuget\\packages\\fluentvalidation\\10.4.0\\fluentvalidation.10.4.0.nupkg.sha512",
+    "C:\\Users\\Burak\\.nuget\\packages\\fluentvalidation.aspnetcore\\10.4.0\\fluentvalidation.aspnetcore.10.4.0.nupkg.sha512",
+    "C:\\Users\\Burak\\.nuget\\packages\\fluentvalidation.dependencyinjectionextensions\\10.4.0\\fluentvalidation.dependencyinjectionextensions.10.4.0.nupkg.sha512",
     "C:\\Users\\Burak\\.nuget\\packages\\microsoft.entityframeworkcore\\6.0.2\\microsoft.entityframeworkcore.6.0.2.nupkg.sha512",
     "C:\\Users\\Burak\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\6.0.2\\microsoft.entityframeworkcore.abstractions.6.0.2.nupkg.sha512",
     "C:\\Users\\Burak\\.nuget\\packages\\microsoft.entityframeworkcore.analyzers\\6.0.2\\microsoft.entityframeworkcore.analyzers.6.0.2.nupkg.sha512",
