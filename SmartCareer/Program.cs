@@ -5,6 +5,7 @@ using FluentValidation.AspNetCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
+builder.Services.AddCors();
 // Add services to the container.
 
 builder.Services.AddControllers();
@@ -13,7 +14,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<SmartCareerDBContext>();
 
-builder.Services.AddControllers().AddFluentValidation(s => 
+builder.Services.AddControllers().AddFluentValidation(s =>
 {
     s.RunDefaultMvcValidationAfterFluentValidationExecutes = false;
     s.RegisterValidatorsFromAssemblyContaining<StartupBase>();
@@ -34,6 +35,8 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+app.UseCors(c => c.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin());
 
 app.UseAuthorization();
 

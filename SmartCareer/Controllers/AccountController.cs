@@ -20,17 +20,32 @@ public class AccountController : ControllerBase
         _accountService = accountService;
     }
 
-    [HttpPut("register")]
+    [HttpPost("register")]
     public async Task<ActionResult> Register([FromBody] UserRequest userRequest)
     {
-        return Ok(await _accountService.RegisterAsync(userRequest));
+        if (await _accountService.RegisterAsync(userRequest))
+            return Ok();
+        return BadRequest();
     }
 
-    [HttpPut("login")]
+    [HttpPost("login")]
     public async Task<ActionResult> Login([FromBody] UserRequest userRequest)
     {
-        if(await _accountService.LoginAsync(userRequest))
-            return Ok();
+        var user = await _accountService.LoginAsync(userRequest);
+
+        if(user != null)
+            return Ok(user);
+        else
+            return Unauthorized();
+    }
+
+    [HttpPost("completeregister")]
+    public async Task<ActionResult> CompleteRegister([FromBody] UserCompleteRequest userCompleteRequest, [FromHeader] string userid)
+    {
+        var user = await _accountService.CompleteRegisterAsync(userCompleteRequest, userid);
+
+        if(user != null)
+            return Ok(user);
         else
             return Unauthorized();
     }
