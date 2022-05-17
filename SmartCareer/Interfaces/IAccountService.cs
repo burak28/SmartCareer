@@ -10,4 +10,6 @@ public interface IAccountService
     public Task<User> LoginAsync(UserRequest userRequest);
 
     public Task<User> CompleteRegisterAsync(UserCompleteRequest userCompleteRequest, string id);
+
+    public Task<User> GetProfileAsync(string id);
 }

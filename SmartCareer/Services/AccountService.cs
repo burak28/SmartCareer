@@ -61,4 +61,14 @@ public class AccountService : IAccountService
 
         return user;
     }
+
+    public async Task<User> GetProfileAsync(string id)
+    {
+        var user = _dbContext.Users.FirstOrDefault(x => x.Id.ToString() == id);
+
+        if(user == null)
+            return null;
+
+        return user;
+    }
 }

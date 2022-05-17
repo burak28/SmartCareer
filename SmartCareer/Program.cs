@@ -5,7 +5,14 @@ using FluentValidation.AspNetCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddCors();
+builder.Services.AddCors(feature =>
+                feature.AddPolicy(
+                    "CorsPolicy",
+                    apiPolicy => apiPolicy
+                                    .AllowAnyOrigin()
+                                    .AllowAnyHeader()
+                                    .AllowAnyMethod()
+                                ));
 // Add services to the container.
 
 builder.Services.AddControllers();
@@ -21,6 +28,7 @@ builder.Services.AddControllers().AddFluentValidation(s =>
 });
 
 builder.Services.AddScoped<IAccountService, AccountService>();
+builder.Services.AddScoped<IMainService, MainService>();
 
 //Validator
 builder.Services.AddScoped<IValidator<UserRequest>, UserRequestValidator>();
@@ -36,7 +44,7 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-app.UseCors(c => c.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin());
+app.UseCors("CorsPolicy");
 
 app.UseAuthorization();
 

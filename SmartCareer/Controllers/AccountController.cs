@@ -49,4 +49,15 @@ public class AccountController : ControllerBase
         else
             return Unauthorized();
     }
+
+    [HttpGet("profile/{id}")]
+    public async Task<ActionResult> GetProfile(string id)
+    {
+        var user = await _accountService.GetProfileAsync(id);
+
+        if(user != null)
+            return Ok(user);
+        else
+            return NotFound();
+    }
 }
