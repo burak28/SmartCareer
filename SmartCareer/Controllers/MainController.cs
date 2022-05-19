@@ -57,4 +57,40 @@ public class MainController : ControllerBase
             return Ok();
         return BadRequest();
     }
+
+    [HttpGet("workitem")]
+    public async Task<ActionResult> GetWorkItems([FromHeader] string userId)
+    {
+        var items = await _mainService.GetWorkItemsAsync(userId);
+        if (items.Count != 0)
+            return Ok(items);
+        return BadRequest();
+    }
+
+    [HttpGet("workitem/{id}")]
+    public async Task<ActionResult> GetWorkItemDetail(string id, [FromHeader] string userId)
+    {
+        var items = await _mainService.GetWorkItemDetailAsync(id, userId);
+        if (items != null)
+            return Ok(items);
+        return BadRequest();
+    }
+
+    [HttpGet("userandjobs/{id}")]
+    public async Task<ActionResult> UserAndJobs(string id)
+    {
+        var items = await _mainService.UserAndJobsAsync(id);
+        if (items.Count != 0)
+            return Ok(items);
+        return BadRequest();
+    }
+
+    [HttpGet("graphicdata/{id}")]
+    public async Task<ActionResult> GraphicData(string id)
+    {
+        var items = await _mainService.GraphicDataAsync(id);
+        if (items != null)
+            return Ok(items);
+        return BadRequest();
+    }
 }

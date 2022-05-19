@@ -19,15 +19,19 @@ public class AccountService : IAccountService
         if(user != null)
             return false;
 
+        var data = DateTime.UtcNow;
+        var data2 = DateTime.UtcNow;
+
         _dbContext.Users.Add(new User
         {
             MailAddress = userRequest.MailAddress,
             Password = userRequest.Password,
+            CreatedTime = DateTime.UtcNow,
             Id = new Guid(),
-            CreatedTime = DateTime.Now,
             IsProfileCompleted = false,
             PhoneNumber="",
-            Username=""
+            Username="",
+            Skills = new string[] {},
         });
 
         await _dbContext.SaveChangesAsync();

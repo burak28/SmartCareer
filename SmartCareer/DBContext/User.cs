@@ -9,7 +9,6 @@ public class User
     public string MailAddress { get; set; }
     public string Password { get; set; }
     public string PhoneNumber { get; set; }
-    [NotMapped]
     public string[] Skills { get; set; }
     public bool IsProfileCompleted { get; set; }
 }

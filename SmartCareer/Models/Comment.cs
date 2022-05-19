@@ -11,6 +11,7 @@ public class CommentModel
     public int Dislike { get; set; }
     public Guid UserId { get; set; }
     public string CommentId { get; set; }
+    public string UserEmail { get; set; }
 }
 
 public class CommentModelValidator : AbstractValidator<CommentModel>

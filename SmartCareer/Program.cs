@@ -1,3 +1,4 @@
+using Microsoft.EntityFrameworkCore;
 using SmartCareer.DBContext;
 using SmartCareer.Models;
 using FluentValidation;
@@ -32,6 +33,10 @@ builder.Services.AddScoped<IMainService, MainService>();
 
 //Validator
 builder.Services.AddScoped<IValidator<UserRequest>, UserRequestValidator>();
+
+builder.Services.AddDbContext<SmartCareerDBContext>(
+    options => options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection"))
+);
 
 var app = builder.Build();
 

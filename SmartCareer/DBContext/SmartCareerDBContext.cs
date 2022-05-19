@@ -6,7 +6,20 @@ namespace SmartCareer.DBContext
     {
         public SmartCareerDBContext(DbContextOptions<SmartCareerDBContext> options) : base(options)
         {
+        }
 
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.UseSerialColumns();
+        }
+
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            if (!optionsBuilder.IsConfigured)
+            {
+                optionsBuilder.UseNpgsql(
+                "Server=localhost;Port=49153;Database=SmartCareer;User Id=postgres;Password=postgrespw");
+            }
         }
 
         public DbSet<User> Users { get; set; }
@@ -14,10 +27,5 @@ namespace SmartCareer.DBContext
         public DbSet<Comment> Comments { get; set; }
 
         public DbSet<WorkItem> WorkItems { get; set; }
-
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            optionsBuilder.UseInMemoryDatabase("SmartCareerDB");
-        }
     }
 }
